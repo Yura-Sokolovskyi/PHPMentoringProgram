@@ -4,6 +4,10 @@ namespace App\DataStructuresAndAlgorithms\ReverseALinkedList;
 
 class ReversedLinkedListBuilder extends AbstractLinkedList
 {
+    /**
+     * @param  Node  $node
+     * @return $this
+     */
     public function build(Node $node): self
     {
         $this->forEach($node, array($this, 'setNextNode'));

@@ -19,6 +19,9 @@ class Node
         return $this->left;
     }
 
+    /**
+     * @param  Node  $left
+     */
     public function setLeft(self $left): void
     {
         $this->left = $left;
@@ -32,11 +35,17 @@ class Node
         return $this->right;
     }
 
+    /**
+     * @param  Node  $right
+     */
     public function setRight(self $right): void
     {
         $this->right = $right;
     }
 
+    /**
+     * @return int
+     */
     public function getData(): int
     {
         return $this->data;

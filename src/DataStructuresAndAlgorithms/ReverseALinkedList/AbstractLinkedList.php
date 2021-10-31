@@ -7,11 +7,17 @@ abstract class AbstractLinkedList
     protected ?Node $head = null;
     private string $listAsString = '';
 
+    /**
+     * @return Node|null
+     */
     public function getList(): ?Node
     {
         return clone $this->head;
     }
 
+    /**
+     * @return string
+     */
     public function toString(): string
     {
         if (!is_null($this->head)) {

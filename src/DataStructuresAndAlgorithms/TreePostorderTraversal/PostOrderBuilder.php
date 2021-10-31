@@ -6,6 +6,10 @@ class PostOrderBuilder
 {
     private string $result = '';
 
+    /**
+     * @param  Node  $node
+     * @return string
+     */
     public function build(Node $node): string
     {
         $this->getData($node);

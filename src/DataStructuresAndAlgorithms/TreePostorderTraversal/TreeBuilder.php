@@ -6,6 +6,10 @@ class TreeBuilder
 {
     private ?Node $rootNode = null;
 
+    /**
+     * @param  array  $data
+     * @return Node
+     */
     public function buildFromArray(array $data): Node
     {
         foreach ($data as $number) {

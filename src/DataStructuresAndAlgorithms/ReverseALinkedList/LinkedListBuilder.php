@@ -4,6 +4,10 @@ namespace App\DataStructuresAndAlgorithms\ReverseALinkedList;
 
 class LinkedListBuilder extends AbstractLinkedList
 {
+    /**
+     * @param  array  $data
+     * @return $this
+     */
     public function buildFromArray(array $data): self
     {
         foreach ($data as $number) {
