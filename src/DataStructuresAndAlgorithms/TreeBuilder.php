@@ -1,16 +1,16 @@
 <?php
 
-namespace App\DataStructuresAndAlgorithms\TreePostorderTraversal;
+namespace App\DataStructuresAndAlgorithms;
 
 class TreeBuilder
 {
-    private ?Node $rootNode = null;
+    private ?TreeNode $rootNode = null;
 
     /**
      * @param  array  $data
-     * @return Node
+     * @return TreeNode
      */
-    public function buildFromArray(array $data): Node
+    public function buildFromArray(array $data): TreeNode
     {
         foreach ($data as $number) {
             $this->rootNode = $this->insert($this->rootNode, $number);
@@ -19,10 +19,10 @@ class TreeBuilder
         return $this->rootNode;
     }
 
-    private function insert(?Node $root, $data): Node
+    private function insert(?TreeNode $root, $data): TreeNode
     {
         if (is_null($root)) {
-            return new Node($data);
+            return new TreeNode($data);
         } else {
             if ($data <= $root->getData()) {
                 $current = $this->insert($root->getLeft(), $data);

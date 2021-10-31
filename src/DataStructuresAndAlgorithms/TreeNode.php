@@ -1,18 +1,18 @@
 <?php
 
-namespace App\DataStructuresAndAlgorithms\TreePostorderTraversal;
+namespace App\DataStructuresAndAlgorithms;
 
-class Node
+class TreeNode
 {
-    private ?Node $left = null;
-    private ?Node $right = null;
+    private ?TreeNode $left = null;
+    private ?TreeNode $right = null;
 
     public function __construct(private int $data)
     {
     }
 
     /**
-     * @return ?Node
+     * @return ?TreeNode
      */
     public function getLeft(): ?self
     {
@@ -20,7 +20,7 @@ class Node
     }
 
     /**
-     * @param  Node  $left
+     * @param  TreeNode  $left
      */
     public function setLeft(self $left): void
     {
@@ -28,7 +28,7 @@ class Node
     }
 
     /**
-     * @return ?Node
+     * @return ?TreeNode
      */
     public function getRight(): ?self
     {
@@ -36,7 +36,7 @@ class Node
     }
 
     /**
-     * @param  Node  $right
+     * @param  TreeNode  $right
      */
     public function setRight(self $right): void
     {

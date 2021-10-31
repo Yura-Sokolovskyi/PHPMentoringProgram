@@ -2,24 +2,31 @@
 
 namespace App\DataStructuresAndAlgorithms\TreePostorderTraversal;
 
+use App\DataStructuresAndAlgorithms\TreeNode;
+
 class PostOrderBuilder
 {
     private string $result = '';
 
     /**
-     * @param  Node  $node
+     * @param  TreeNode  $node
      * @return string
      */
-    public function build(Node $node): string
+    public function build(TreeNode $node): string
     {
         $this->getData($node);
 
-        return trim($this->result, ' ');
+        return $this->result;
     }
 
-    private function getData(?Node $node){
-        if(!is_null($node)){
-            $this->result = sprintf('%u %s', $node->getData(), $this->result);
+    private function getData(?TreeNode $node)
+    {
+        if (!is_null($node)) {
+            if ($this->result) {
+                $this->result = ' '.$this->result;
+            }
+
+            $this->result = sprintf('%u%s', $node->getData(), $this->result);
             $this->getData($node->getRight());
             $this->getData($node->getLeft());
         }
