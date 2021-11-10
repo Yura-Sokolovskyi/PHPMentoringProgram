@@ -19,26 +19,25 @@ class LinkedListBuilder extends AbstractLinkedList
 
     private function appendNode(?Node $node, $data)
     {
-        if(is_null($node)){
+        if (is_null($node)) {
             $this->head = new Node($data);
         } else {
             $currentNodeData = $node->getData();
-            if(is_null($node->getNexNode())){
-                if($data < $currentNodeData){
+            if (is_null($node->getNexNode())) {
+                if ($data < $currentNodeData) {
                     $node->setData($data);
                     $node->setNexNode(new Node($currentNodeData));
-                } else if ($data != $currentNodeData){
+                } elseif ($data != $currentNodeData) {
                     $node->setNexNode(new Node($data));
                 }
             } else {
-                if($data < $currentNodeData){
+                if ($data < $currentNodeData) {
                     $node->setData($data);
                     $this->appendNode($node->getNexNode(), $currentNodeData);
-                } else if($data != $currentNodeData){
+                } elseif ($data != $currentNodeData) {
                     $this->appendNode($node->getNexNode(), $data);
                 }
             }
         }
     }
 }
-

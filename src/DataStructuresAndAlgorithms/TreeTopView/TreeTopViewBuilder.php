@@ -21,8 +21,8 @@ class TreeTopViewBuilder
 
     private function getData(?TreeNode $node, int $index = 0)
     {
-        if (!is_null($node)) {
-            if (!array_key_exists($index, $this->results)) {
+        if (! is_null($node)) {
+            if (! array_key_exists($index, $this->results)) {
                 $this->results[$index] = $node->getData();
             }
 

@@ -21,7 +21,7 @@ class PostOrderBuilder
 
     private function getData(?TreeNode $node)
     {
-        if (!is_null($node)) {
+        if (! is_null($node)) {
             if ($this->result) {
                 $this->result = ' '.$this->result;
             }
@@ -32,4 +32,3 @@ class PostOrderBuilder
         }
     }
 }
-
