@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0d1016;
+}
+
+.data-container {
+    flex-wrap: wrap;
+    border-radius: 20px;
+    margin-top: 50px;
+    width: 95%;
+    background: #07080a;
+    color: orange;
+    padding: 10px;
+}
+
+ul b{
+    color: white;
+}
+
+li {
+    margin: 5px 0 5px 0;
+}
+
+form {
+
+    margin-top: 50px;
+}
+
+form input{
+    height: 30px;
+}
+
+form .text {
+    width: 600px;
+}
