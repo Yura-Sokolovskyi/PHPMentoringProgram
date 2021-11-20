@@ -42,28 +42,31 @@ class TextAnalyzer
 
     private function analyzeCharacters()
     {
-        $characters = preg_split('//', $this->text, -1, PREG_SPLIT_NO_EMPTY);
+        $characters = preg_split('//u', $this->text, -1, PREG_SPLIT_NO_EMPTY);
         $this->characters['number'] = count($characters);
-        $this->characters['characterInfo'] = $this->getFrequencyOfCharacters();
+        $this->characters['characterInfo'] = $this->getFrequencyOfCharacters($characters);
     }
 
     private function getFrequencyOfCharacters(): array
     {
-        $result = [];
-
-        foreach (count_chars($this->text, 1) as $i => $val) {
-            $result[chr($i)]['number'] = $val;
-            $result[chr($i)]['percentage']
-                = round($val / $this->characters['number'] * 100, 2);
+        $l = mb_strlen($this->text, 'UTF-8');
+        $unique = [];
+        for ($i = 0; $i < $l; $i++) {
+            $char = mb_substr($this->text, $i, 1, 'UTF-8');
+            if (! array_key_exists($char, $unique)) {
+                $unique[$char]['number'] = 0;
+            }
+            $unique[$char]['number']++;
+            $unique[$char]['percentage'] = round($unique[$char]['number'] / $l * 100, 2);
         }
 
-        return $result;
+        return $unique;
     }
 
     private function analyzeWords()
     {
         $words = preg_split(
-            '/[^\w]*([\s]+[^\w]*|$)/',
+            '/[^\w]*([\s]+[^\w]*|$)/u',
             strtolower($this->text),
             -1,
             PREG_SPLIT_NO_EMPTY
@@ -100,7 +103,7 @@ class TextAnalyzer
 
     private function analyzeSentence()
     {
-        $sentences = preg_split('/(?<=[.?!])\s+(?=[a-z])/i', $this->text);
+        $sentences = preg_split('/(?<=[.?!;])\s+/u', $this->text, -1, PREG_SPLIT_NO_EMPTY);
 
         $this->sentences['number'] = count($sentences);
 
@@ -112,7 +115,7 @@ class TextAnalyzer
         $result = 0;
 
         foreach ($sentences as $sentence) {
-            $result += str_word_count($sentence);
+            $result += count(preg_split('/\s+/u', $sentence));
         }
 
         $this->sentences['averageSentencesLength'] = round($result / count($sentences), 2);
@@ -140,28 +143,37 @@ class TextAnalyzer
     {
         $string = implode($words);
 
-        if ($string == strrev($string)) {
+        if ($string == $this->mb_strrev($string)) {
             $this->isPalindrome = 'yes';
         }
     }
 
     private function reverse()
     {
-        $reversed = array_reverse(preg_split("/\s+|\b(?=[!?.,])(?!\.\s+)/",
-            $this->text));
-
-        $previous = ' ';
+        $reversed = array_reverse(preg_split(
+            "/\b/u",
+            $this->text
+        ));
 
         foreach ($reversed as $key => $value) {
-            $reversed = strrev($value);
-            if (! preg_match("/\?|\.|!|\s/", $previous) && $value != ',') {
-                $value = ' '.$value;
-                $reversed = ' '.$reversed;
+            if (! preg_match("/\?|\.|!|\s/u", $value)) {
+                $reversed = $this->mb_strrev($value);
+                $this->reversed .= $reversed;
+            } else {
+                $this->reversed .= $value;
             }
-            $previous = $value;
 
             $this->reversedPartial .= $value;
-            $this->reversed .= $reversed;
         }
+    }
+
+    private function mb_strrev($str): string
+    {
+        $r = '';
+        for ($i = mb_strlen($str); $i >= 0; $i--) {
+            $r .= mb_substr($str, $i, 1);
+        }
+
+        return $r;
     }
 }
