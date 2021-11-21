@@ -1,8 +1,7 @@
 <?php
+require_once '../../vendor/autoload.php';
 
 use App\PHPBasics\TextAnalyzer;
-
-require 'TextAnalyzer.php';
 
 ?>
 
