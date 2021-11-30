@@ -1,0 +1,106 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #0b0c14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 95%;
+    max-height: 95%;
+    width: 1000px;
+    height: 750px;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.container .data-container {
+    margin: 0;
+    padding: 0;
+    height: calc(100% - 120px);
+    width: 100%;
+}
+
+.container li, .container .item {
+    display: flex;
+    border-bottom: 1px solid gray;
+}
+
+.container .header, .container nav {
+    display: flex;
+    height: 40px;
+    width: 100%;
+    background-color: #2f364a;
+}
+
+.container .data, .container .header .filter-item {
+    width: 20%;
+    margin: 10px;
+    border: 0;
+}
+
+.container .item .btn {
+    width: 60px;
+    border: 0;
+    text-decoration: none;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: gray;
+    color: white;
+    font-family: monospace;
+}
+
+.container .header a, .pages-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.pages-container {
+    padding: 10px 50px;
+    width: calc(100% - 200px);
+    color: #8edef7;
+}
+
+.pages-container a {
+    margin: 0 5px;
+    color: #8edef7;
+}
+
+.pages-container a.active {
+    font-weight: bold;
+    color: white;
+}
+
+.container .create {
+    background-color: #ccccd3;
+}
+
+.container .data-container .item .update {
+    background-color: orange;
+}
+
+.container .data-container .item .remove {
+    background-color: red;
+}
+
+.container .item .save {
+    background-color: green;
+    width: 120px;
+}
+
+nav .search input.data {
+    width: 200px;
+}
+
+.container .header a.clear {
+    background-color: firebrick;
+    padding: 5px 0;
+    margin: 5px 10px;
+    text-align: center;
+    border-radius: 5px;
+}
