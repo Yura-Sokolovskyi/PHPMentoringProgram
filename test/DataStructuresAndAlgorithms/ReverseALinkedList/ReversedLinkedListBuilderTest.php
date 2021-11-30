@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\DataStructuresAndAlgorithms\ReverseALinkedList;
+
 use App\DataStructuresAndAlgorithms\ReverseALinkedList\LinkedListBuilder;
 use App\DataStructuresAndAlgorithms\ReverseALinkedList\ReversedLinkedListBuilder;
 use PHPUnit\Framework\TestCase;
@@ -8,7 +10,7 @@ class ReversedLinkedListBuilderTest extends TestCase
 {
     public function testReversedLinkedList()
     {
-        $listBuilder = (new LinkedListBuilder())->buildFromArray([1,1,4,1,3,2,3,1,4,1,1]);
+        $listBuilder = (new LinkedListBuilder())->buildFromArray([1, 1, 4, 1, 3, 2, 3, 1, 4, 1, 1]);
         $list = $listBuilder->getList();
 
         $this->assertEquals('1 2 3 4', $listBuilder->toString());

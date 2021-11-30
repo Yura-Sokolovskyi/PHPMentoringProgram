@@ -14,7 +14,7 @@ class Node
      * @param  Node|null  $nexNode
      * @return Node
      */
-    public function setNexNode(?Node $nexNode): self
+    public function setNexNode(?self $nexNode): self
     {
         $this->nexNode = $nexNode;
 
@@ -24,7 +24,7 @@ class Node
     /**
      * @return ?Node
      */
-    public function getNexNode(): ?Node
+    public function getNexNode(): ?self
     {
         return $this->nexNode;
     }
@@ -45,4 +45,3 @@ class Node
         return $this->data;
     }
 }
-

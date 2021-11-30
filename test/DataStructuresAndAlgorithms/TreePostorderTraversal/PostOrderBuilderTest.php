@@ -1,7 +1,9 @@
 <?php
 
-use App\DataStructuresAndAlgorithms\TreePostorderTraversal\PostOrderBuilder;
+namespace Test\DataStructuresAndAlgorithms\TreePostorderTraversal;
+
 use App\DataStructuresAndAlgorithms\TreeBuilder;
+use App\DataStructuresAndAlgorithms\TreePostorderTraversal\PostOrderBuilder;
 use PHPUnit\Framework\TestCase;
 
 class PostOrderBuilderTest extends TestCase

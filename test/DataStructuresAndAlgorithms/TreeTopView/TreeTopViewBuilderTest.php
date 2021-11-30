@@ -1,5 +1,7 @@
 <?php
 
+namespace Test\DataStructuresAndAlgorithms\TreeTopView;
+
 use App\DataStructuresAndAlgorithms\TreeBuilder;
 use App\DataStructuresAndAlgorithms\TreeTopView\TreeTopViewBuilder;
 use PHPUnit\Framework\TestCase;

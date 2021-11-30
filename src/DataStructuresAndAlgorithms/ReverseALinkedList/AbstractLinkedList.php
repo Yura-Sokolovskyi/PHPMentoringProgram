@@ -20,8 +20,8 @@ abstract class AbstractLinkedList
      */
     public function toString(): string
     {
-        if (!is_null($this->head)) {
-            $this->forEach($this->head, array($this, 'appendToString'));
+        if (! is_null($this->head)) {
+            $this->forEach($this->head, [$this, 'appendToString']);
         }
 
         return $this->listAsString;
@@ -33,7 +33,7 @@ abstract class AbstractLinkedList
 
         $callback($node);
 
-        if (!is_null($nextNode)) {
+        if (! is_null($nextNode)) {
             $this->forEach($nextNode, $callback);
         }
     }
