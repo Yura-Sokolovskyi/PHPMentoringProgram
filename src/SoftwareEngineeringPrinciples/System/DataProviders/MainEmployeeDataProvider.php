@@ -24,11 +24,18 @@ class MainEmployeeDataProvider implements DataProvider
         ],
     ];
 
+    /**
+     * @param  int  $id
+     * @return array
+     */
     public function getById(int $id): array
     {
         return $this->data[$id];
     }
 
+    /**
+     * @return array
+     */
     public function getAll(): array
     {
         return $this->data;

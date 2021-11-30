@@ -4,6 +4,7 @@ namespace App\SoftwareEngineeringPrinciples\System\Builders;
 
 use App\SoftwareEngineeringPrinciples\System\Interfaces\DataProvider;
 use App\SoftwareEngineeringPrinciples\System\Interfaces\EmployeeBuilderInterface;
+use App\SoftwareEngineeringPrinciples\System\Models\Employee;
 
 class EmployeeBuilder implements EmployeeBuilderInterface
 {
@@ -32,6 +33,9 @@ class EmployeeBuilder implements EmployeeBuilderInterface
         return $this;
     }
 
+    /**
+     * @return Employee[]
+     */
     public function getEmployees(): array
     {
         $employees = [];

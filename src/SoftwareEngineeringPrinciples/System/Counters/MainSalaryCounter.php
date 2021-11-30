@@ -33,6 +33,9 @@ class MainSalaryCounter implements SalaryCounter
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function countSalary(): array
     {
         $salary = [];

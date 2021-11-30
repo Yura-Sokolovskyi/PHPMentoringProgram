@@ -21,6 +21,10 @@ class MainWorkHoursCounter implements WorkHoursCounter
         return $this;
     }
 
+    /**
+     * @param  Employee  $employee
+     * @return float
+     */
     public function countHours(Employee $employee): float
     {
         return array_sum($this->dataProvider->getById($employee->getId()));
