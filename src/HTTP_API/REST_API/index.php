@@ -16,5 +16,5 @@ echo match ((Request::createFromGlobals())->query->get('route')) {
         'GET',
         'breed/hound/images/random'
     ))->getBody(),
-    default => 'Wrong rout',
+    default => 'Wrong endpoint',
 };
