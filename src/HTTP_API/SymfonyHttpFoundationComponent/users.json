@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "fist_name": "Paul",
+    "last_name": "Brown",
+    "email": "paul@email.com",
+    "phone": "380963632545"
+  },
+  {
+    "id": 2,
+    "fist_name": "John",
+    "last_name": "Red",
+    "email": "john@email.com",
+    "phone": "380963638896"
+  },
+  {
+    "id": 3,
+    "fist_name": "Mark",
+    "last_name": "White",
+    "email": "mark@email.com",
+    "phone": "380663625896"
+  },
+  {
+    "id": 4,
+    "fist_name": "Meri",
+    "last_name": "Jonson",
+    "email": "meri@email.com",
+    "phone": "380994525786"
+  }
+]
